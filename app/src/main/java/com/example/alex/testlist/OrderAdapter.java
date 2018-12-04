@@ -115,29 +115,6 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderHolder>
             }
         }
 
-//        try {
-//
-//            for(int n = 0; n < orderRowsList.size(); n++){
-//                OrderRow row = orderRowsList.get(n);
-////                OrderRowFragment fragment = new OrderRowFragment();
-////                fragment.setName(row.getName());
-////                fragment.setMainInfo(String.format("(цена: %s, кол-во: %s, ст-ть: %s)",
-////                        row.getPrice(),
-////                        row.getKol(),
-////                        row.getPrice()));
-////                fragment.setOrderSum(row.getPrice10());
-////                fm.beginTransaction().add(R.id.containerLL, fragment)
-////                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-////                        .commit();
-//
-//
-//            }
-//
-//
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-
     }
 
     @Override

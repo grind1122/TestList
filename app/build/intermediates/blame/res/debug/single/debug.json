@@ -256,6 +256,10 @@
         "source": "C:\\Users\\Alex\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\242ea747339aba4465282b70d7113e40\\res\\drawable-xxhdpi-v4\\abc_textfield_default_mtrl_alpha.9.png"
     },
     {
+        "merged": "D:\\TimeMetApp\\TestList\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_autorenew_black_24dp.xml.flat",
+        "source": "D:\\TimeMetApp\\TestList\\app\\src\\main\\res\\drawable\\ic_autorenew_black_24dp.xml"
+    },
+    {
         "merged": "D:\\TimeMetApp\\TestList\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_activity_chooser_view_list_item.xml.flat",
         "source": "C:\\Users\\Alex\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\242ea747339aba4465282b70d7113e40\\res\\layout\\abc_activity_chooser_view_list_item.xml"
     },

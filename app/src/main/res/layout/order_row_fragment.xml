@@ -5,27 +5,32 @@
                     android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:orientation="vertical"
-                  android:id="@+id/layoutOrderRow">
+                  android:id="@+id/layoutOrderRow"
+                    android:divider="?android:dividerHorizontal"
+                    android:showDividers="middle">
 
     <TextView
             android:id="@+id/textViewName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Виски Белая Лошадь 0,7 L" />
+            android:textColor="@color/colorName"
+            android:text="Виски Белая Лошадь 0,7 L"
+            android:layout_marginBottom="8dp"
+            android:textSize="14sp"
+            android:textStyle="bold"/>
+
 
     <TextView
             android:id="@+id/textViewMainInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="(цена: 1750, кол-во: 1, ст-ть: 1750)" />
+            android:text="@string/main_info"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:textSize="14sp"/>
 
-    <TextView
-            android:id="@+id/textViewOrderSum"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Сумма заказа: 1750" />
+
 
 </LinearLayout>

@@ -7,6 +7,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
+import android.text.Spanned;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,6 +36,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderHolder>
     private CardView cardView;
     private TextView textViewNumber;
     private TextView textViewDate;
+    private TextView textViewOrderSum;
     private TextView textViewSale;
     private TextView textViewDelivery;
     private TextView textViewForPay;
@@ -76,6 +79,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderHolder>
         cardView = (CardView) LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.cardview_order, viewGroup, false);
         textViewNumber = cardView.findViewById(R.id.textViewNumber);
         textViewDate = cardView.findViewById(R.id.textViewDate);
+        textViewOrderSum = cardView.findViewById(R.id.textViewOrderSum);
         textViewSale = cardView.findViewById(R.id.textViewSale);
         textViewDelivery = cardView.findViewById(R.id.textViewDelivery);
         textViewForPay = cardView.findViewById(R.id.textViewForPay);
@@ -90,29 +94,30 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderHolder>
     @Override
     public void onBindViewHolder(@NonNull OrderHolder orderHolder, int i) {
         Order order = orderList.get(i);
-        textViewNumber.setText(order.getId());
+
+        formatForString(textViewNumber,context.getString(R.string.number), order.getId());
         textViewDate.setText(order.getDate());
-        textViewSale.setText(order.getSkidkaRub().toString());
-        textViewDelivery.setText(order.getDostavka());
-        textViewForPay.setText(order.getPayed());
-        textViewStatus.setText(order.getStatus());
+        formatForString(textViewSale,context.getString(R.string.sale), order.getSkidkaRub().toString());
+        formatForString(textViewDelivery,context.getString(R.string.delivery), order.getDostavka());
+        formatForString(textViewForPay,context.getString(R.string.for_pay), order.getPayed());
+        formatForString(textViewStatus,context.getString(R.string.status), order.getStatus());
         orderRowsList = order.getOrderRows();
         textViewRepeat.setText("Повторить заказ");
         int childCount = orderRowsList.size();
-
+        int sum = 0;
         if (container.getChildCount() < childCount) {
             for(int n = 0; n < orderRowsList.size(); n++){
                 OrderRow row = orderRowsList.get(n);
                 View orderRow = LayoutInflater.from(context).inflate(R.layout.order_row_fragment, vg ,false);
                 TextView name = orderRow.findViewById(R.id.textViewName);
                 TextView info = orderRow.findViewById(R.id.textViewMainInfo);
-                TextView sum = orderRow.findViewById(R.id.textViewOrderSum);
-                name.setText(row.getName());
-                info.setText(String.format("(цена: %s, кол-во: %s, ст-ть: %s)",
-                        row.getPrice(), row.getKol(), row.getPrice()));
-                sum.setText(row.getPrice());
+                formatForString(name, row.getName());
+                formatForString(info,context.getString(R.string.main_info),
+                        row.getPrice(), row.getKol(), row.getPrice());
                 container.addView(orderRow);
+                sum += Integer.parseInt(row.getPrice());
             }
+            formatForString(textViewOrderSum,context.getString(R.string.order_sum), sum);
         }
 
     }
@@ -126,7 +131,6 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderHolder>
         String json = null;
         try {
             InputStream is = context.getAssets().open("data.json");
-//            InputStream is = context.getClassLoader().getResourceAsStream("data.json");
 
             int size = is.available();
 
@@ -145,5 +149,11 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderHolder>
         }
         return json;
 
+    }
+
+    private String formatForString(TextView view, String s, Object...args){
+        Spanned text = Html.fromHtml(String.format(s, args));
+        view.setText(text);
+        return text.toString();
     }
 }

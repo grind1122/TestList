@@ -2,9 +2,17 @@
 <android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="16dp">
+    android:layout_marginEnd="16dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginBottom="4dp"
+    card_view:cardCornerRadius="16dp"
+    card_view:contentPadding="16dp"
+    card_view:elevation="8dp"
+    >
 
     <LinearLayout
             android:layout_width="match_parent"
@@ -17,14 +25,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="№" />
+        android:text="@string/number"
+        android:layout_marginBottom="8dp"
+        android:textSize="14sp"/>
 
     <TextView
         android:id="@+id/textViewDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="2018" />
+        android:text="@string/date"
+        android:layout_marginBottom="8dp"
+        android:textSize="14sp"/>
     <LinearLayout android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                     android:orientation="vertical"
@@ -32,40 +44,74 @@
 
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/textViewOrderSum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/order_sum"
+        android:layout_marginBottom="8dp"
+        android:textSize="14sp"/>
+
 
     <TextView
         android:id="@+id/textViewSale"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="Скидка: " />
+        android:text="@string/sale"
+        android:layout_marginBottom="8dp"
+        android:textSize="14sp"/>
 
     <TextView
         android:id="@+id/textViewDelivery"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="Доставка: " />
+        android:text="@string/delivery"
+        android:layout_marginBottom="8dp"
+        android:textSize="14sp"/>
 
     <TextView
         android:id="@+id/textViewForPay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="К оплате: " />
+        android:text="@string/for_pay"
+        android:layout_marginBottom="8dp"
+        android:textSize="20sp"/>
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorGray"/>
 
     <TextView
         android:id="@+id/textViewStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="Статус заказа: " />
-
-    <TextView
-        android:id="@+id/textViewRepeat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Повторить " />
+        android:text="@string/status"
+        android:layout_marginBottom="8dp"
+        android:textSize="14sp"/>
+    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+        <TextView
+            android:id="@+id/textViewRepeat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/repeate"
+            android:textColor="@color/colorName"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:src="@drawable/ic_autorenew_black_24dp"/>
+    </LinearLayout>
     </LinearLayout>
 </android.support.v7.widget.CardView>

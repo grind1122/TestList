@@ -407,6 +407,8 @@ color cardview_light_background
 color cardview_shadow_end_color
 color cardview_shadow_start_color
 color colorAccent
+color colorGray
+color colorName
 color colorPrimary
 color colorPrimaryDark
 color dim_foreground_disabled_material_dark
@@ -667,6 +669,7 @@ drawable abc_textfield_search_activated_mtrl_alpha
 drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
+drawable ic_autorenew_black_24dp
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable notification_action_background
@@ -949,8 +952,17 @@ string abc_shareactionprovider_share_with
 string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
 string app_name
+string date
+string delivery
+string for_pay
 string hello_blank_fragment
+string main_info
+string number
+string order_sum
+string repeate
+string sale
 string search_menu_title
+string status
 string status_bar_notification_info_overflow
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
